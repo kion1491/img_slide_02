@@ -12,13 +12,14 @@ imgSrcList = [
 
 const slideBox = document.getElementById("slideBox");
 const slideReset = `
+                    <div class="prev_arrow" id="prevArrow"></div>
                     <img src="`+ imgSrcList[0] + `" />
-                    <button class="prev_arrow" id="prevArrow"></button>
-                    <button class="next_arrow" id="nextArrow"></button>
+                    <div class="next_arrow" id="nextArrow"></div>
                    `;
 slideBox.innerHTML = slideReset;
 
-slideImg = slideBox.firstChild.nextSibling;
+slideImg = slideBox.firstChild.nextElementSibling.nextElementSibling;
+// console.log(slideImg);
 let i = 0;
 
 function slideNext() {
