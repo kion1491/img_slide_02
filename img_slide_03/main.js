@@ -1,5 +1,4 @@
 
-
 imgSrcList = [
   "http://placehold.it/1000x500/aaa/ffffff?text=No.1",
   "http://placehold.it/1000x500/1e4e7c/ffffff?text=No.2",
@@ -17,6 +16,10 @@ const slideReset = `
                     <div class="next_arrow" id="nextArrow"></div>
                    `;
 slideBox.innerHTML = slideReset;
+
+const arrowColor = "#000";
+document.getElementById("prevArrow").style.borderRight = "50px solid " + arrowColor;
+document.getElementById("nextArrow").style.borderLeft = "50px solid " + arrowColor;
 
 slideImg = slideBox.firstChild.nextElementSibling.nextElementSibling;
 // console.log(slideImg);
