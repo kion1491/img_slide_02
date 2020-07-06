@@ -7,15 +7,14 @@ imgSrcList = [
   "http://placehold.it/1000x500/3e3e3e/ffffff?text=No.5"
 ];
 
-// 사용자 정의 생성자 함수 방식
-function imgSlide(arrowColor) {
-  this.arrowColor = arrowColor;
+// outer function에서 정의된 모든 변수는 다른 inner function에서 접근 할 수 있다.
+function imgSlide(arrowColor, slideDuration) {
   const slideBox = document.getElementById("slideBox");
   const slideReset = `
                     <div class="prev_arrow" id="prevArrow"></div>
                     <img src="`+ imgSrcList[0] + `" />
                     <div class="next_arrow" id="nextArrow"></div>
-                   `;
+                    `;
   slideBox.innerHTML = slideReset;
 
   // const arrowColor = "#000";
@@ -44,26 +43,24 @@ function imgSlide(arrowColor) {
   prevBtn.addEventListener("click", slidePrev);
   nextBtn.addEventListener("click", slideNext);
 
+  // 자동 슬라이드
+  function autoSlide(slideDuration) {
+    console.log(slideDuration)
+    setInterval(function () {
+      if (i == imgSrcList.length) { i = 0; }
+      slideImg.src = imgSrcList[i];
+      i = i + 1;
+    }, slideDuration)
+  }
 
+  // 자동슬라이드 클래스 트리거
+  if (slideBox.classList.contains('autoSlide')) {
+    prevBtn.style.display = "none";
+    nextBtn.style.display = "none";
+    autoSlide(slideDuration);
+  }
 };
 
-// 이미지 슬라이드를 생성해주는 객체 생성 코드. 현재는 맨 밑에줄에 있는 코드 하나만 실행되는데, 함수의 인자값으로 부모 div의 클래스를 받아서 그 클래스의 자식요소로 이미지슬라이드가 생성되도록 만들 예정.
-const imgSlide01 = new imgSlide("#000");
-const imgSlide02 = new imgSlide("#ddd");
-
-
-// 자동 슬라이드
-function autoSlide() {
-  setInterval(function () {
-    if (i == imgSrcList.length) { i = 0; }
-    slideImg.src = imgSrcList[i];
-    i = i + 1;
-  }, 1000)
-}
-
-// 자동슬라이드 클래스 트리거
-if (slideBox.classList.contains('autoSlide')) {
-  prevBtn.style.display = "none";
-  nextBtn.style.display = "none";
-  autoSlide();
-}
+// 이미지 슬라이드를 생성해주는 객체 생성 코드.
+// const imgSlide01 = new imgSlide("#000", 1000);
+const imgSlide02 = new imgSlide("#ddd", 1000);
