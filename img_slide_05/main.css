@@ -1,0 +1,9 @@
+li{list-style: none;}
+.container{width: 100%;}
+.slide_box{position:relative;text-align: center;}
+.slide_box img{width: 50%;vertical-align: middle;}
+/* .next_arrow{position: absolute; background: url("arrow.PNG");background-size: contain; width: 120px; height: 120px; border: none; transform: rotate(90deg); right: 0; bottom: 0;}
+.prev_arrow{position: absolute; background: url("arrow.PNG");background-size: contain; width: 120px; height: 120px; border: none; transform: rotate(-90deg); left: 0; bottom: 0;} */
+.next_arrow{ border-top: 50px solid transparent;border-right: 50px solid transparent;border-bottom: 50px solid transparent;border-left: 50px solid #36454f;display: inline-block;vertical-align: middle;}
+.prev_arrow{border-top: 50px solid transparent;border-right: 50px solid #36454f;border-bottom: 50px solid transparent;border-left: 50px solid transparent;display: inline-block;vertical-align: middle;}
+button:hover{border: none;}
